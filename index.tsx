@@ -7,8 +7,15 @@ import App from './App';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+const render = () => {
+  root.render(
+    React.createElement(
+      StrictMode,
+      null,
+      React.createElement(App, null),
+      React.createElement('pre', null, new Date().toLocaleTimeString())
+    )
+  );
+};
+
+setInterval(render, 1000);
