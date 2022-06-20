@@ -5,10 +5,10 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 
 const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+const root = createRoot(rootElement || new Element());
 
 root.render(
   <StrictMode>
-    <App />
+    <App title="The GitHub Cards App"/>
   </StrictMode>
 );
