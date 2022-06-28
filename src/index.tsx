@@ -1,14 +1,13 @@
-import * as React from 'react';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import * as React from "react";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App";
 
-import App from './App';
-
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 const root = createRoot(rootElement || new Element());
 
 root.render(
   <StrictMode>
-    <App title="The GitHub Cards App"/>
+    <App title="The GitHub Cards App" />
   </StrictMode>
 );
