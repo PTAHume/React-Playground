@@ -1,4 +1,3 @@
-import axios from "axios";
 import * as React from "react";
 import "./style.css";
 import { Agent } from "./Agent";
@@ -24,14 +23,15 @@ const testData = [
 
 // GitHub usernames: gaearon, sophiebits, sebmarkbage, bvaughn
 
-const CardList = (props: any) => (
-  <div>
-    {props.profiles.map((profile: any) => (
-      <Card key={profile.id} {...profile} />
-    ))}
-  </div>
-);
-
+const CardList = ({ profiles }: { profiles: any }): any => {
+  return (
+    <div>
+      {profiles.map((profile: any) => (
+        <Card key={profile.id} {...profile} />
+      ))}
+    </div>
+  );
+};
 
 class Form extends React.Component<any> {
   //use ref example: (1)
@@ -58,7 +58,7 @@ class Form extends React.Component<any> {
           placeholder="GitHub username"
           //use ref example: (3)
           //ref={this.userInputRef}
-          value={this.state.userName}        
+          value={this.state.userName}
           onChange={(event) => this.setState({ userName: event.target.value })}
           required
           minLength={2}
