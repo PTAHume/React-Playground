@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 import "./style.css";
-
+import { Agent } from "./Agent";
 /*
 const testData = [
   {
@@ -32,17 +32,21 @@ const CardList = (props: any) => (
   </div>
 );
 
+
 class Form extends React.Component<any> {
   //use ref example: (1)
   //userInputRef = React.createRef<HTMLInputElement>();
   state = { userName: "" };
   handleSubmit: any = async (event: any) => {
     event.preventDefault();
+    const resp = await new Agent(this.state.userName).GetCard();
+    /*
     const resp = await axios.get(
       `https://api.github.com/users/${this.state.userName}`
     );
-    this.props.onSubmit(resp.data);
-    this.setState ({ userName: ''})
+    */
+    this.props.onSubmit(resp);
+    this.setState({ userName: "" });
     //use ref example: (2)
     //console.log(this.userInputRef.current?.value);
   };
@@ -54,7 +58,7 @@ class Form extends React.Component<any> {
           placeholder="GitHub username"
           //use ref example: (3)
           //ref={this.userInputRef}
-          value={this.state.userName}
+          value={this.state.userName}        
           onChange={(event) => this.setState({ userName: event.target.value })}
           required
           minLength={2}
@@ -83,7 +87,7 @@ class Card extends React.Component<any> {
 
 export default class App extends React.Component<any> {
   state = {
-    profiles: []//[testData],
+    profiles: [], //[testData],
   };
   addNewProfile = (profileData: any) => {
     this.setState((prevState: any) => ({
