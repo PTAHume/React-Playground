@@ -6,7 +6,7 @@ export class Agent {
   async GetCard(): Promise<any> {
     const resp = await axios.get(
       `https://api.github.com/users/${this.userName}`
-    )
+    );
     return resp.data;
   }
 }
